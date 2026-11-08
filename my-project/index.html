@@ -6,8 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-project</title>
   </head>
-  <body>
-    
+  <body><!-- LAYAR WELCOME -->
+<div class="welcome" id="welcome">
+  <div class="welcome-box">
+    <p class="welcome-small">Halo, selamat datang</p>
+    <h1 class="welcome-title">Welcome to <span>My Website</span></h1>
+    <p class="welcome-name">Khresna Yuda Pratama</p>
+    <a href="#beranda" class="welcome-btn">Masuk ke Dashboard </a>
+  </div>
+</div>
+<style>
+ 
+  /* ===== WELCOME SCREEN ===== */
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #0f172a, #1e293b 60%, #0f172a);
+  color: #fff;
+  /* hilang otomatis setelah 4 detik */
+  animation: hidewelcome 2.8s ease 15s forwards;
+}
+
+/* hilang langsung jika tombol ditekan */
+html:has(#beranda:target) .welcome {
+  display: none;
+}
+
+.welcome-box {
+  animation: fadeUp 1s ease both;
+}
+
+.welcome-small {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 12px;
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.welcome-title {
+  font-size: clamp(2rem, 7vw, 4rem);
+  margin: 0;
+  line-height: 1.15;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.welcome-title span {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.welcome-name {
+  margin: 16px 0 32px;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  animation: fadeUp 1s ease 0.8s both;
+}
+
+.welcome-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeUp 1s ease 1.1s both;
+}
+
+.welcome-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+/* ===== ANIMASI ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hideWelcome {
+  to { opacity: 0; visibility: hidden; }
+}
+</style>
+
+<!-- DASHBOARD LAMA ANDA TETAP DI SINI -->
+<header id="beranda"> ... </header>
+      
     <script type="module" src="/src/main.ts"></script>
     
     <!--hero section star  -->
@@ -81,16 +176,16 @@
 <body class="bg-ink font-sans text-slate-300 antialiased">
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-navy-800/60 bg-black/80 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-      <a href="#beranda" class="font-mono text-sm font-bold text-white">khresna<span class="text-navy-500">.dev</span></a>
-      <ul class="flex items-center gap-5 text-sm sm:gap-8">
-        <li><a href="#tentang" class="transition hover:text-white">Tentang</a></li>
-        <li><a href="#skill" class="transition hover:text-white">Skill</a></li>
-        <li><a href="#kontak" class="rounded-md bg-navy-700 px-3 py-1.5 font-medium text-white transition hover:bg-navy-500">Kontak</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header class="sticky top-0 z-50 border-b border-navy-800/60 bg-black/80 backdrop-blur">
+  <nav aria-label="Navigasi utama" class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="#skill" class="font-mono text-sm font-bold text-white">khresna<span class="text-navy-500">.dev</span></a>
+    <ul class="flex items-center gap-5 text-sm sm:gap-8">
+      <li><a href="#tentang" class="transition hover:text-white">Tentang</a></li>
+      <li><a href="#skill" class="transition hover:text-white">Skill</a></li>
+      <li><a href="#kontak" class="rounded-md bg-navy-700 px-3 py-1.5 font-medium text-white transition hover:bg-navy-500">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
     <!-- Hero -->
@@ -128,8 +223,8 @@
               <span class="h-2.5 w-2.5 rounded-full bg-navy-700"></span>
               <span class="ml-2 font-mono text-[11px] text-slate-500">profil.php</span>
             </div>
-            <pre class="overflow-x-auto p-3 font-mono text-[11px] leading-5 text-slate-300"><code><span class="text-navy-300">$stack</span> = [<span class="text-amber-200">"HTML"</span>, <span class="text-amber-200">"CSS"</span>,
-  <span class="text-amber-200">"JS"</span>, <span class="text-amber-200">"PHP"</span>, <span class="text-amber-200">"MySQL"</span>];<span class="cursor"></span></code></pre>
+            <pre class="overflow-x-auto p-3 font-mono text-[11px] leading-5 text-slate-300"><code><span class="text-navy-300">$stack</span> = [<span class="text-emerald-300">"HTML"</span>, <span class="text-cyan-300">"CSS"</span>,
+  <span class="text-amber-200" class="text-slate-300">"JS"</span>, <span class="text-sky-300" >"PHP"</span>, <span class="text-cyan-300">"MySQL"</span>];<span class="cursor"></span></code></pre>
           </div>
         </div>
       </div>
@@ -249,5 +344,12 @@
 </body>
 </html>
     <!-- hero section end -->
+     
+     <!--scrip kalau di refresh kembalike halaman awal  -->
+     <script>
+      if(window.location.hash) 
+      { window.location.href = window.location.href.split('')[0];}
+       
+     </script>
   </body>
 </html>
